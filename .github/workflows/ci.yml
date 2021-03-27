@@ -5,10 +5,10 @@ jobs:
     runs-on: windows-latest  
     steps:
 
-    - name: Install .NET Core 3.0
+    - name: Install .NET 6 preview
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.0.100
+        dotnet-version: 6.0.100-preview.1.21103.13
 
     - name: Checkout
       uses: actions/checkout@v1
