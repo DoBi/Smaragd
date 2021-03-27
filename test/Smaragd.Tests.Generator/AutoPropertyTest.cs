@@ -1,4 +1,4 @@
-﻿using NKristek.Smaragd.Attributes;
+﻿using NKristek.Smaragd.Generators.Attributes;
 using NKristek.Smaragd.ViewModels;
 using System;
 

@@ -24,8 +24,10 @@ namespace NKristek.Smaragd.Generators
                 foreach (VariableDeclaratorSyntax variable in fieldDeclarationSyntax.Declaration.Variables)
                 {
                     // Get the symbol being declared by the field, and keep it if its annotated
-                    IFieldSymbol fieldSymbol = context.SemanticModel.GetDeclaredSymbol(variable) as IFieldSymbol;
-                    if (fieldSymbol.GetAttributes().Any(ad => ad.AttributeClass.ToDisplayString() == "NKristek.Smaragd.Attributes.AutoPropertyAttribute"))
+                    if (context.SemanticModel.GetDeclaredSymbol(variable) is IFieldSymbol fieldSymbol &&
+                        fieldSymbol.GetAttributes().Any(ad =>
+                            ad.AttributeClass?.ToDisplayString() ==
+                            $"{AutoPropertyGenerator.AttributeNamespace}.{AutoPropertyGenerator.AttributeName}"))
                     {
                         Fields.Add(fieldSymbol);
                     }
